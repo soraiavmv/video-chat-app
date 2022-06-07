@@ -7,11 +7,13 @@ const AppBar = () => {
   return (
     <MaterialAppBar
       position='static'
-      color='inherit'
       className={css.appBar}
     >
-      <Typography variant='h2'>
-        Video Chat App
+      <Typography
+        variant='h2'
+        className={css.typography}
+      >
+        VIDEO CHAT
       </Typography>
     </MaterialAppBar>
   );

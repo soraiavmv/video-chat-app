@@ -1,14 +1,18 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles(() => ({
   appBar: {
-    borderRadius: 15,
-    margin: '30px 100px',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#41B3A3',
+    borderRadius: 15,
     width: '600px',
-    border: '2px solid black'
+    margin: '20px 100px',
+  },
+  typography: {
+    color: '#41B3A3',
+    textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white'
   }
 }));
