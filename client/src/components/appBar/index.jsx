@@ -13,7 +13,7 @@ const AppBar = () => {
         variant='h2'
         className={css.typography}
       >
-        VIDEO CHAT
+        VISTRAPP
       </Typography>
     </MaterialAppBar>
   );

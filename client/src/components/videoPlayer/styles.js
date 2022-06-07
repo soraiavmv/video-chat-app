@@ -1,6 +1,6 @@
-import { makeStyles } from 'material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
-export const styles = makeStyles((theme) => ({
+export const useStyles = makeStyles((theme) => ({
   video: {
     width: '550px',
     [theme.breakpoints.down('xs')]: {
@@ -18,4 +18,7 @@ export const styles = makeStyles((theme) => ({
     border: '2px solid black',
     margin: '10px',
   },
+  typography: {
+    fontFamily: 'Poppins, sans-serif'
+  }
 }));

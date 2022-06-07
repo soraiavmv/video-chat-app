@@ -7,7 +7,7 @@ import React, {
 import { io } from 'socket.io-client';
 import Peer from 'simple-peer';
 
-const SocketContext = createContext();
+export const SocketContext = createContext();
 
 const socket = io('http://localhost:8000');
 
@@ -31,7 +31,7 @@ const ContextProvider = ({ children }) => {
         audio: true
       }).then((currentStream) => {
         setStream(currentStream);
-        video.current.srcObject = currentStream;
+        video?.current && (video.current.srcObject = currentStream);
       });
 
     socket.on('user_id', (id) => setUserId(id));
@@ -73,7 +73,7 @@ const ContextProvider = ({ children }) => {
     });
 
     peer.on('stream', (currentStream) => peerVideo.current.srcObject = currentStream);
-    
+
     socket.on('call_accepted', (signal) => {
       setCallAccepted(true);
       peer.signal(signal);

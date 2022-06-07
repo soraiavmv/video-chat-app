@@ -1,18 +1,22 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export const useStyles = makeStyles(() => ({
+export const useStyles = makeStyles((theme) => ({
   appBar: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#41B3A3',
+    backgroundColor: '#3DBBCD',
     borderRadius: 15,
     width: '600px',
     margin: '20px 100px',
+
+    [theme.breakpoints.down('xs')]: {
+      width: '90%',
+    },
   },
   typography: {
-    color: '#41B3A3',
-    textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white'
+    color: '#20939D',
+    fontFamily: 'Pacifico, cursive'
   }
 }));
