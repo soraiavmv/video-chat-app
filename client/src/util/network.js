@@ -8,20 +8,19 @@ import { io } from 'socket.io-client';
 import Peer from 'simple-peer';
 
 export const SocketContext = createContext();
-
 const socket = io('http://localhost:8000');
 
 const ContextProvider = ({ children }) => {
-  const [stream, setStream] = useState();
-  const [userId, setUserId] = useState('');
   const [call, setCall] = useState({});
-  const [name, setName] = useState('');
   const [callAccepted, setCallAccepted] = useState(false);
   const [callEnded, setCallEnded] = useState(false);
+  const [name, setName] = useState('');
+  const [stream, setStream] = useState();
+  const [userId, setUserId] = useState('');
 
-  const video = useRef();
-  const peerVideo = useRef();
   const connection = useRef();
+  const peerVideo = useRef();
+  const video = useRef();
 
   useEffect(() => {
     navigator
@@ -31,7 +30,7 @@ const ContextProvider = ({ children }) => {
         audio: true
       }).then((currentStream) => {
         setStream(currentStream);
-        video?.current && (video.current.srcObject = currentStream);
+        video.current.srcObject = currentStream;
       });
 
     socket.on('user_id', (id) => setUserId(id));
@@ -93,6 +92,7 @@ const ContextProvider = ({ children }) => {
       call,
       callAccepted,
       video,
+      stream,
       peerVideo,
       name,
       setName,
